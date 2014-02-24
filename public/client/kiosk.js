@@ -1,5 +1,7 @@
 (function(){
-    var size,kioskWrapperClient;
+    var size,kioskWrapperClient,
+        openStep = 0,
+        points = [{x:"left",y:"top"},{x:"right",y:"top"},{x:"right",y:"bottom"},{x:"left",y:"bottom"}];
 
     function wndSize(){
         var w = 0;var h = 0;
@@ -20,14 +22,22 @@
     }
 
     document.addEventListener("click",function(e){
-        var x = e.x,
+        var point = points[openStep],
+            x = e.x,
             y = e.y;
         if(!size){
             size = wndSize();
         }
-        if(y < 0.1 * size.height &&  size.width - x  < 0.1 * size.height){
-            kioskWrapperClient.openSettings();
+
+        if((point.x == "left" && x < 0.1 * size.width) || (point.x == "right" && x > 0.9 * size.width)){
+            if((point.y == "top" && y < 0.1 * size.height) || (point.y == "bottom" && y > 0.9 * size.height)){
+                if(points.length >= ++openStep){
+                    kioskWrapperClient.openSettings();
+                    return ;
+                }
+            }
         }
+        openStep = 0;
     });
 
     kioskWrapperClient = {
