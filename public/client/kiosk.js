@@ -33,8 +33,8 @@
             if((point.y == "top" && y < 0.1 * size.height) || (point.y == "bottom" && y > 0.9 * size.height)){
                 if(points.length <= ++openStep){
                     kioskWrapperClient.openSettings();
-                    return ;
                 }
+                return false;
             }
         }
         openStep = 0;
