@@ -44,6 +44,9 @@
         openSettings:function(){
             parent.window.postMessage("settings:open", "*");
         },
+        resetSettings:function(){
+            parent.window.postMessage("settings:reset", "*");
+        },
         notificationFire:function(){
             parent.window.postMessage("notification:fire", "*");
         }
