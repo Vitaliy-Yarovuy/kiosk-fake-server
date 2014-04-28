@@ -1,6 +1,12 @@
 var apn = require ('apn');
+var path = require('path');
 
-var service = new apn.connection({ gateway:'gateway.sandbox.push.apple.com' });
+var service = new apn.connection({
+    gateway:'gateway.sandbox.push.apple.com',
+    cert: path.join(__dirname, '../certificats/aps_certificates.pem'),
+    key: path.join(__dirname, '../certificats/aps_certificates.pem'),
+    passphrase: 'test'
+});
 
 service.on('connected', function() {
     console.log("Connected");
