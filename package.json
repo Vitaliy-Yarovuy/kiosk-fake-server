@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "3.4.4",
     "jade": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "apn": "~1.5.2"
   }
 }

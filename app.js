@@ -32,6 +32,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/404', routes.u404);
+app.post('/tokenregistration', routes.addToken);
+app.post('/addbadge', routes.addBadge);
 
 
 
