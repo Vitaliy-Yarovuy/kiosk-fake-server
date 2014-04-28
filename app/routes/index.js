@@ -6,7 +6,8 @@ var service = require("../services/anp-service").service;
  */
 
 var bundles = {
-    NONE:{ badge:0 }
+    NONE:{ badge:0 },
+    d81cf65ce6e39dc27a8606b737824879f292893e5facf3742a8f4d6e46066b49NONE:{ badge: 2 }
 };
 
 
