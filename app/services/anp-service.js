@@ -2,6 +2,8 @@ var apn = require ('apn');
 var path = require('path');
 var fs = require('fs');
 
+process.env.DEBUG = 'apn';
+
 var service = new apn.connection({
     gateway:'gateway.sandbox.push.apple.com',
     cert: fs.readFileSync(path.join(__dirname, '../certificats/push_key.pem')),
