@@ -20,11 +20,15 @@ html
           button.btn.btn-lg.btn-primary(type="button", onclick="kioskWrapperClient.notificationFire()") notification fire
         br
         hr
+        form(action="/addbadge", method="post")
+          input.form-control(type="text", name="token", value="token")
+          button.btn.btn-primary(type="submit") submit
+        hr
 
         ol
           each data, token in bundles
             li
               form(action="/addbadge", method="post")
                 input(type="hidden", name="token", value=token)
-                button.btn.btn-lg.btn-primary(type="submit")= token + " "
+                button.btn.btn-primary(type="submit")= token + " "
                   span.badge=data.badge

@@ -6,8 +6,7 @@ var service = require("../services/anp-service").service;
  */
 
 var bundles = {
-    NONE:{ badge:0 },
-    d81cf65ce6e39dc27a8606b737824879f292893e5facf3742a8f4d6e46066b49NONE:{ badge: 2 }
+    NONE:{ badge:0 }
 };
 
 
@@ -42,6 +41,11 @@ exports.addBadge = function(req, res){
         note.setAlertText("Hello, from Gizomenu!");
         note.badge = bundles[token].badge;
 
+        service.pushNotification(note, token);
+    }else{
+        var note = new apn.notification();
+        note.setAlertText("Hello, new from Gizomenu!");
+        note.badge = 3;
         service.pushNotification(note, token);
     }
     res.redirect("/");

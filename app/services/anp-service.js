@@ -6,7 +6,7 @@ process.env.DEBUG = 'apn';
 
 var service = new apn.connection({
     gateway:'gateway.sandbox.push.apple.com',
-    cert: fs.readFileSync(path.join(__dirname, '../certificats/push_key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, '../certificats/apns.pem')),
     //key: path.join(__dirname, '../certificats/key_push.pem'),
     //pfx: path.join(__dirname, '../certificats/aps_certificates.pem'),
     //passphrase: 'test'
